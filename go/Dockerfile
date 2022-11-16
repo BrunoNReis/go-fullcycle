@@ -4,9 +4,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN  go build -o build/hello hello.go
+RUN  go build -ldflags "-s -w" -o build/hello hello.go
 
-FROM alpine:2.6
+FROM scratch
 
 WORKDIR /app
 
